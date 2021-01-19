@@ -52,7 +52,7 @@ def variableNames():
 				99: 'reynolds number'}
 	return dictVar
 
-# 1: 7579
+
 
 def convert2HumanData(machineData, dictVar):
 	humanData = {}
@@ -65,33 +65,26 @@ def convert2HumanData(machineData, dictVar):
 			regB = machineData[key+1]
 
 
-			humanData[dictVar[key]] = {"A": machineData[key], "B": machineData[key+1], 
-										"C": None, "human": real4Conversion(regA, regB)}
+			humanData[dictVar[key]] = {"A": machineData[key], "human": real4Conversion(regA, regB)}
 		elif key in [9, 13, 17, 21, 25, 29]:
 			regA = machineData[key]
 			regB = machineData[key+1]
-			humanData[dictVar[key]] = {"A": machineData[key], "B": machineData[key+1], 
-										"C": None, "human": real4Conversion(regA, regB)}
+			humanData[dictVar[key]] = {"A": machineData[key], "human": real4Conversion(regA, regB)}
 		elif key in [49, 51, 53, 56]:
 			if key == 53:
-				humanData[dictVar[key]] = {"A": machineData[key], "B": machineData[key+1], 
-											"C": machineData[key+2], "human": [machineData[key], 
+				humanData[dictVar[key]] = {"A": machineData[key], "human": [machineData[key], 
 															machineData[key+1], machineData[key+2]]}
 
 			elif key == 49:
-				humanData[dictVar[key]] = {"A": machineData[key], "B": machineData[key+1], "C": None,
-											"human": [machineData[key], machineData[key+1]]}
+				humanData[dictVar[key]] = {"A": machineData[key],"human": [machineData[key], machineData[key+1]]}
 
 			else:
-				humanData[dictVar[key]] = {"A": machineData[key], "B": None,
-											"C": None, "human": machineData[key]}
+				humanData[dictVar[key]] = {"A": machineData[key], "human": machineData[key]}
 		elif key in [59, 60, 61, 62, 92, 93, 94, 96]:
 			regA = machineData[key]
-			humanData[dictVar[key]] = {"A": machineData[key], "B": None,
-										"C": None, "human": integerConversion(regA, key)}
+			humanData[dictVar[key]] = {"A": machineData[key], "human": integerConversion(regA, key)}
 		elif key == 72:
-			humanData[dictVar[key]] = {"A": machineData[key], "B": None, 
-										"C": None, "human": machineData[key]}
+			humanData[dictVar[key]] = {"A": machineData[key],"human": machineData[key]}
 	
 	return humanData
 
