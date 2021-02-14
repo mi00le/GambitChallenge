@@ -1,6 +1,5 @@
 # GambitChallenge
-
-A lot of Googling went into this challenge
+Konvert modbus code to hunman readable code 
 
 python main.py
 
